@@ -170,7 +170,7 @@ The server communicates over stdio using JSON-RPC 2.0, the standard MCP transpor
 
 ## A note on testing
 
-This was built directly from Google's official AdMob API v1 reference (endpoints, OAuth scopes, and the exact dimension/metric enums for both report types) and its full request/response logic — token refresh and caching, pagination, and report-response parsing — is covered by tests against a mocked API. It has not yet been exercised against a live AdMob account; if `generate_network_report` / `generate_mediation_report` hit an unexpected response shape on first real use (the API docs describe the report response as a "stream" without fully specifying HTTP wire format), that's the place to look first.
+This was built directly from Google's official AdMob API v1 reference (endpoints, OAuth scopes, and the exact dimension/metric enums for both report types), with token refresh/caching, pagination, and report-response parsing covered by tests against a mocked API. It has also been verified end-to-end against a live AdMob account: the OAuth loopback flow, `list_accounts`, `list_apps`, `list_ad_units`, `generate_network_report` (both an empty-result case and a populated one, confirming row and footer parsing), and `generate_mediation_report` all returned correct real data.
 
 ---
 
