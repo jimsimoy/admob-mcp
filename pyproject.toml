@@ -1,0 +1,20 @@
+[project]
+name = "admob-mcp"
+version = "0.1.0"
+description = "MCP server for the Google AdMob API: accounts, apps, ad units, and network/mediation reports."
+authors = [
+    { name = "Jan Ivan Simoy", email = "jimsimoy@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.27",
+    "mcp>=2.0.0",
+]
+
+[project.scripts]
+admob-mcp = "admob_mcp:main"
+admob-mcp-authorize = "admob_mcp.authorize:main"
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"
