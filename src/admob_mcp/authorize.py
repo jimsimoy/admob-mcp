@@ -59,7 +59,9 @@ def main() -> None:
 
     server = HTTPServer(("127.0.0.1", 0), _CallbackHandler)
     port = server.server_address[1]
-    redirect_uri = f"http://127.0.0.1:{port}/"
+    # Use "localhost" (not 127.0.0.1) to match the redirect_uri registered on
+    # Desktop-app OAuth clients in Google Cloud Console.
+    redirect_uri = f"http://localhost:{port}/"
 
     auth_params = {
         "client_id": client_id,
